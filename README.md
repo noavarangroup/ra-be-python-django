@@ -35,7 +35,7 @@ You need to design tow tables, *master* and *slave* each with the following fiel
   | Master | A foreign key to Master table. |
   | Parent | A relation to another record in Subsidiary table. |
 
-Please create a Github repository and give the access when the task is done.
+Please fork this repository and give the access when the task is done.
 
 ### Part 1
 
