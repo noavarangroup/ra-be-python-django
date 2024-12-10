@@ -58,9 +58,9 @@ class SubsidiaryViewSet(SoftDeleteMixin, ModelViewSet):
     def export(self, request):
         queryset = self.filter_queryset(self.get_queryset())
 
-        data = MasterSerializer(queryset, many=True).data
+        data = SubsidiarySerializer(queryset, many=True).data
         df = pd.DataFrame(data)
         response = HttpResponse(content_type='application/vnd.ms-excel')
-        response['Content-Disposition'] = 'attachment; filename=masters.xlsx'
+        response['Content-Disposition'] = 'attachment; filename=Subsidiary.xlsx'
         df.to_excel(response, index=False)
         return response
