@@ -30,9 +30,12 @@ You need to design tow tables, *master* and *slave* each with the following fiel
   | -------- | ------- |
   | Title | - |
   | Code | - |
+  | Debit | Has value only if this entity is last level. |
+  | Credit | Has value only if this entity is last level. |
   | Created_Date | - |
   | Creator | - |
   | Master | A foreign key to Master table. |
+  | Is_Last_Level | If true, no any other subsidiary references this entity as its parent. |
   | Parent | A relation to another record in Subsidiary table. |
 
 Please fork this repository and give the access when the task is done.
@@ -47,6 +50,12 @@ The CRUD operation on these tables should be implemented with the following cond
 
 ### Part 2
 
-Create export-to-excel APIs for read operations.
+Please fill the tables with acceptable large fake data, so we can measure the performance of your queries as well. You are suppose to provide us a hierarchical report for the amount of debit/credit each level has; which is the summation of debit/credit of all subsequences in each level.
+
+E.g.:
+Master <--- Sub1 <--- Sub2 <--- Sub3 (last level)  
+- for Master, the given debit must be the summation of debit in all 3 Subs  
+- for Sub1, the given debit must be the summation of debit in Sub2 and Sub3  
+- for Sub12, the given debit must be the debit in Sub3
 
 Happy Coding :smiley:
